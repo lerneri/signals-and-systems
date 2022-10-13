@@ -32,7 +32,7 @@ grid
 pause
 
 pause
-subplot(325)
+subplot(322)
 y3 = subs(x,t,-2*t+4);
 fplot(y2,[-3,5]);
 ylabel('y_3(t)==x(-2t+4)');
@@ -41,7 +41,7 @@ axis equal
 grid
 
 pause
-subplot(325)
+subplot(324)
 y4 = subs(x,t,-t-2);
 fplot(y4,[-3,5]);
 ylabel('y_4(t)==x(-t-2)');
@@ -50,7 +50,7 @@ axis equal
 grid
 
 pause
-subplot(324)
+subplot(326)
 y5 = subs(x,t,(t+6)/3);
 fplot(y5,[-3,5]);
 ylabel('y_5(t)==x((t+6)/3)');
@@ -72,11 +72,17 @@ Ix = [-3,5];
 Iy = [-3,5];
 
 OperaSinal(x,Ix,subs(x,t,-t+1),Iy);
+pause
 OperaSinal(x,Ix,subs(x,t,2*t-1),Iy);
+pause
 OperaSinal(x,Ix,subs(x,t,-2*t+4),Iy);
+pause
 OperaSinal(x,Ix,subs(x,t,-t-2),Iy);
+pause
 OperaSinal(x,Ix,subs(x,t,(t+6)/3),Iy);
+pause
 OperaSinal(x,Ix,subs(-0.5*x-1,-t/3,t+2),Iy);
+pause
 
 function OperaSinal(x,Ix,y,Iy)
 syms t;
