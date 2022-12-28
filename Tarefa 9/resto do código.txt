@@ -1,0 +1,45 @@
+theta = [a1 b1];
+ % Obtenção dos parâmetros a1,b1
+y_est1;
+ % Obtenção do sinal estimado
+erro = y - y_est;
+ % erro de estimação
+Jest = norm(erro)/l;
+ % MSE
+fprintf('Os parâmetos estimados foram:\n\n'), theta
+fprintf('A equação a diferenças é:\n\ny(k) = %.4fy(k-1)+ %.4fu(k-1) )\n', theta(1), theta(2))
+fprintf('\nO aproximação J é: \n\n%d\n\n', Jest)
+fprintf('------------------------------------------------------------------------------------------------------------------------\n')
+fprintf('A função em Z é:\n\nY(z) = %.4fY(z)z^-1 + %.4fU(z)z^-1 \n',theta(1), theta(2))
+fprintf('A função de transferência em z, G(z) é:\n\n')
+fprintf('Y(z)/U(z) = (%.4fz^-1 )\n/(1 - %.4fz^-1 )',theta(1),abs(theta(2)))
+
+%$$$$$$$$$$$$$$$$$$$$$$$ Modelo de segunda ordem $$$$$$$$$$$$$$$$$$$$$
+%y(k) = a1y(k-1) + a0y(k-2) + b1u(k-1) + b0u(k-2)
+sys = arx(data,[na nb nk]) 
+% Escrever o código para o modelo de segunda ordem
+theta = [a1 a0 b1 b0];
+ % Obtenção dos parâmetros a1, a0, b1, b0
+y_est2;
+erro = y - y_est;
+Jest = norm(erro)/l;
+% Obtenção do sinal estimado
+% erro de estimação
+% MSE
+fprintf('Os parâmetos estimados foram:\n\n'),theta
+fprintf('A equação a diferenças é:\n\ny(k) = %.4fy(k-1) + %.4fy(k-2) +%.4fu(k-1) + %.4fu(k-2)\n', theta(1), theta(2), theta(3), theta(4))
+fprintf('\nO aproximação Jest é: \n\n%d\n\n', Jest)
+fprintf('------------------------------------------------------------------------------------------------------------------------\n')
+fprintf('A função em Z é:\n\nY(z) = %.4fY(z)z^-1 + %.4fY(z)z^-2 +%.4fU(z)z^-1 + %.4fU(z)z^-2\n', theta(1), theta(2), theta(3),theta(4))
+fprintf('A função de transferência em z, G(z) é:\n\n')
+fprintf('Y(z)/U(z) = (%.4fz^-1 + %.4fz^-2)\n/(1 - %.4fz^-1 + %.4fz^-2)', theta(3), theta(4), theta(1), abs(theta(2)))
+%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Fim Modelo
+de Segunda Ordem$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+% Gerar gráficos
+figure (1)
+plot(y)
+hold on
+plot(y_est1)
+ % Modelo de primeira ordem
+plot(y1_est2) % Modelo de segunda ordem
+legend({'y_m_e_d_i_d_o','y_e_s_t_2_a_._o_r_d_e_m','y_e_s_t_1_a_._o_r_d_e_m'},'Location','southeast')

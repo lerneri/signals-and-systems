@@ -1,0 +1,53 @@
+sys =
+Discrete-time ARX model: A(z)y(t) = B(z)u(t) + e(t)
+  A(z) = 1 - 0.9658 z^-1                           
+                                                   
+  B(z) = 0.03761 z^-1                              
+                                                   
+Sample time: 1 seconds
+  
+Parameterization:
+   Polynomial orders:   na=1   nb=1   nk=1
+   Number of free coefficients: 2
+   Use "polydata", "getpvec", "getcov" for parameters and their uncertainties.
+
+Status:                                         
+Estimated using ARX on time domain data.        
+Fit to estimation data: 96.4% (prediction focus)
+FPE: 0.5187, MSE: 0.4999    
+
+Warning: For transient data (step or impulse experiment), make sure that the change in input signal does not happen too
+early relative to the order of the desired model. You can achieve this by prepending sufficient number of zeros
+(equilibrium values) to the input and output signals. For example, a step input must be represented as [zeros(nx,1);
+ones(N,1)] rather than ones(N,1), such that nx > model order. 
+> In idpack.utValidateEstimationData (line 102)
+In idpack.utPrepareEstimationOptions (line 62)
+In validateARXInputs (line 232)
+In arx (line 82)
+In atividade1parte1 (line 23) 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.625105e-17. 
+> In idpack.polydata/arx_time>arx_time_prediction (line 325)
+In idpack.polydata/arx_time (line 60)
+In idpack/polydata/arx (line 505)
+In idpoly/arx_ (line 32)
+In arx (line 98)
+In atividade1parte1 (line 23)    
+
+
+sys2 =
+Discrete-time ARX model: A(z)y(t) = B(z)u(t) + e(t)
+  A(z) = 1 - 1.923 z^-1 + 0.928 z^-2               
+                                                   
+  B(z) = 0.005397 z^-1                             
+                                                   
+Sample time: 0.01 seconds
+  
+Parameterization:
+   Polynomial orders:   na=2   nb=2   nk=0
+   Number of free coefficients: 4
+   Use "polydata", "getpvec", "getcov" for parameters and their uncertainties.
+
+Status:                                          
+Estimated using ARX on time domain data.         
+Fit to estimation data: 99.89% (prediction focus)
+FPE: 0.000503, MSE: 0.000467  
